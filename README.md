@@ -1,4 +1,4 @@
-# KJVDaily
+# PrayerPal
 This is a website that sends daily King James Bible verses to registered users via email. Additionally, the website offers several other features such as chat rooms, games, and trivia to keep users engaged and connected with other users.
 
 ## Features
@@ -9,13 +9,25 @@ This is a website that sends daily King James Bible verses to registered users v
 
 ## Technologies Used
 This web application is built using the following technologies:
-- HTML, CSS, and JavaScript
+- Backend: Node.js, Express.js
+- Database: MySQL and Sequelize ORM
+- Template engine: Handlebars.js
+- Deployment: Heroku
 
 ## Installation
-To view the website, simply navigate to  https:// in your web browser. There is no need to install software or dependencies.
+To view the website, simply navigate to  https:// in your web browser.
 You can clone this repository and install the necessary dependencies using the following commands:
 
 `git clone git@github.com:.git`
+
+## Enviroment Variables
+
+## API Endpoints
+
+## Database Schema
+
+## Template Engine
+Handlebars.js is used as the template engine to render dynamic HTML pages.
 
 ## Usage
 add

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Heaven Quiz</title>
+  </head>
+  <body>
+    <header>
+      <h1>How good of a person are you?</h1>
+    </header>
+
+    <section class="highScore">
+      <h2 id="highScoreLink">View High Scores</h2>
+      <h2 id="timer"></h2>
+    </section>
+
+    <section class="sect" id="intro">
+      <p>
+        You will have 60 seconds to answer up to 5 quesitons, <br />Click "Start
+        Quiz" to begin.
+      </p>
+      <button id="start">Start Quiz</button>
+    </section>
+
+    <div class="sect" id="rate"></div>
+
+    <section class="sect" id="questionSelect">
+      <h3 id="question"></h3>
+      <p class="option" id="A" onclick="validateAnswer('A')"></p>
+      <p class="option" id="B" onclick="validateAnswer('B')"></p>
+    </section>
+
+    <section class="sect" id="gameOver">
+      <h2 class="final">Quiz Over</h2>
+      <p id="score"></p>
+      <label for="initials">Enter initals</label>
+      <input type="text" name="initials" id="initials" />
+      <button id="submitBtn">Submit</button>
+    </section>
+
+    <section class="sect" id="highScorePage">
+      <h2>Heaven's list</h2>
+      <div id="highScores"></div>
+      <button id="main">Main Page</button>
+    </section>
+
+    <script src="assets/quiz.js"></script>
+  </body>
+</html>

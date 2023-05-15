@@ -4,14 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title> PrayerPal</title>
+    <style> 
+    body {
+      background-color: lightblue;
+    }
+      </style>
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Coding Quiz</title>
+    <title>PrayerPal Quiz</title>
   </head>
 
-  <form action="/login" method="post">
-    <input type="text" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <input type="submit" value="Login" />
-  </form>
-  <script src="assets/script.js"></script>
+  <body>
+    <div id="header" class="container flex items-center">
+          <img id="“logo”" src="images\PrayerPal.png" alt="PrayerPal" logo.“ />
+    </div>
+
+    <form class="w-full max-w-sm mx-auto mt-4" action="/login" method="post">
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="email">
+          Email
+        </label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="email" placeholder="Email" required />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-bold mb-2" for="password">
+          Password
+        </label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" placeholder="Password" required />
+      </div>
+      <div class="flex items-center justify-between">
+        <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Login" />
+      </div>
+    </form>
+    <script src="assets/script.js"></script>
+   
+    <div id="footer" class="bg-cover bg-center py-24" style="background-image: url('images/Pink Clouds.png');">
+      <nav class="flex justify-center">
+        <a href="#top" class="bg-indigo-500 text-white font-bold px-6 py-3 rounded-lg hover:bg-indigo-800">Back to Top</a>
+      </nav>
+    </div>
+
 </html>

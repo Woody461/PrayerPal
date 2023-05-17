@@ -4,18 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Heaven Quiz</title>
+    <style> 
+      body {
+        background-color: lightblue;
+      }
+        </style>
   </head>
   <body>
-    <header>
-      <h1>How good of a person are you?</h1>
-    </header>
+    <div id="header" class="container flex items-center">
+      <img id="“logo”" src="images\PrayerPal.png" alt="PrayerPal" logo.“ />
+</div>
+    <header class="text-center">
+      <img id="quizlogo" src="images\Take your PrayerPal Quiz.png" alt="Quiz Logo" class="mx-auto" />
+      <h1 class="text-3xl mt-4">How good of a person are you?</h1>
+</header>
 
-    <section class="highScore">
-      <h2 id="highScoreLink">View High Scores</h2>
-      <h2 id="timer"></h2>
-    </section>
+<section class="flex justify-between mt-4">
+  <h2 id="highScoreLink" class="text-xl">View High Scores</h2>
+  <h2 id="timer" class="text-xl"></h2>
+</section>
 
     <section class="sect" id="intro">
       <p>
@@ -48,5 +58,9 @@
     </section>
 
     <script src="assets/quiz.js"></script>
+
+    <div id="footer" class="bg-cover bg-center py-36 w-full h-full" style="background-image: url('images/PinkClouds\ Header.png');">
+    </div>
+
   </body>
 </html>

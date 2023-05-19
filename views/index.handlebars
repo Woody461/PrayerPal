@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Scripture</title>
+</head>
+<body>
+  <h1>Daily Scripture</h1>
+  <div id="scripture-container">
+    <p>Loading scripture...</p>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function fetchDailyScripture() {
+      axios.get('/get-daily-scripture')
+        .then(response => {
+          const scriptureContainer = document.getElementById('scripture-container');
+          scriptureContainer.innerHTML = '<p>' + response.data.scripture + '</p>';
+        })
+        .catch(error => {
+          console.error(error);
+          const scriptureContainer = document.getElementById('scripture-container');
+          scriptureContainer.innerHTML = '<p>Failed to fetch daily scripture.</p>';
+        });
+    }
+
+    // Fetch and display the daily scripture on page load
+    document.addEventListener('DOMContentLoaded', fetchDailyScripture);
+  </script>
+</body>
+</html>

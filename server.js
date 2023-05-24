@@ -39,7 +39,7 @@ app.get('', (req, res) => {
       res.sendStatus(500);
     } else {
       if (results && results.length > 0) {
-        const selectedScripture = results[0].verse;
+        const selectedScripture = results[0];
         res.render('daily-scripture', { scripture: selectedScripture });
       } else {
         console.log('No scriptures found in the database');

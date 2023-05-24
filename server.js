@@ -52,11 +52,40 @@ app.get('', (req, res) => {
 // API endpoint to insert a scripture
 app.get('/insert-scripture', (req, res) => {
   // Define the scripture data
-  const verse = 'The LORD is my shepherd; I shall not want.';
-  const book = 'Psalms';
-  const chapter = 23;
-  const verseNumber = 1;
-
+  const verses = [
+    {
+      verse: 'The LORD is my shepherd; I shall not want.',
+      book: 'Psalms',
+      chapter: 23,
+      verseNumber: 1,
+    },
+    {
+      verse: 'For God so loved the world that he gave his one and only Son.',
+      book: 'John',
+      chapter: 3,
+      verseNumber: 16,
+    },
+    {
+      verse: 'Trust in the LORD with all your heart, and do not lean on your own understanding.',
+      book: 'Proverbs',
+      chapter: 3,
+      verseNumber: 5,
+    },
+    {
+      verse: 'I can do all things through Christ who strengthens me.',
+      book: 'Philippians',
+      chapter: 4,
+      verseNumber: 13,
+    },
+    {
+      verse: 'The fear of the LORD is the beginning of wisdom.',
+      book: 'Proverbs',
+      chapter: 9,
+      verseNumber: 10,
+    },
+  ];
+    res.json(verses);
+  
   // Prepare the INSERT query
   const query = 'INSERT INTO s_scriptures (verse, book, chapter, verse_number) VALUES (?, ?, ?, ?)';
   const values = [verse, book, chapter, verseNumber];

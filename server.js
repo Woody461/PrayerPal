@@ -29,7 +29,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/get-daily-scripture', (req, res) => {
+app.get('', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 
@@ -49,6 +49,30 @@ app.get('/get-daily-scripture', (req, res) => {
   });
 });
 
+// API endpoint to insert a scripture
+app.get('/insert-scripture', (req, res) => {
+  // Define the scripture data
+  const verse = 'The LORD is my shepherd; I shall not want.';
+  const book = 'Psalms';
+  const chapter = 23;
+  const verseNumber = 1;
+
+  // Prepare the INSERT query
+  const query = 'INSERT INTO s_scriptures (verse, book, chapter, verse_number) VALUES (?, ?, ?, ?)';
+  const values = [verse, book, chapter, verseNumber];
+
+  // Execute the INSERT query
+  connection.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error inserting scripture:', err);
+      res.sendStatus(500);
+    } else {
+      console.log('Scripture inserted successfully');
+      res.sendStatus(200);
+    }
+  });
+});
+
 // Set static folder
 app.use(express.static('public'));
 
@@ -62,3 +86,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+

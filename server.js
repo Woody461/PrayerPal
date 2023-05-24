@@ -84,11 +84,13 @@ app.get('/insert-scripture', (req, res) => {
       verseNumber: 10,
     },
   ];
-    res.json(verses);
-  
+
+  // Select a random verse
+  const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+
   // Prepare the INSERT query
   const query = 'INSERT INTO s_scriptures (verse, book, chapter, verse_number) VALUES (?, ?, ?, ?)';
-  const values = [verse, book, chapter, verseNumber];
+  const values = [randomVerse.verse, randomVerse.book, randomVerse.chapter, randomVerse.verseNumber];
 
   // Execute the INSERT query
   connection.query(query, values, (err, result) => {
@@ -101,7 +103,6 @@ app.get('/insert-scripture', (req, res) => {
     }
   });
 });
-
 // Set static folder
 app.use(express.static('public'));
 

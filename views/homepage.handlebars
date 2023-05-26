@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
     <title>Home page</title>
     <style>
       body {
         background-color: lightblue;
       }
       #header {
-        background-color: white;
+        background-color: lightblue;
         padding: 10px;
       }
       #logo {
-        width: 150px;
+        max-width: 100%;
         height: auto;
+        margin: 0 auto;
+        display: block;
       }
-      #scripture-button {
+      #scripture-button, #quiz-button {
         background-color: #4f46e5;
         color: white;
         padding: 10px 20px;
@@ -26,34 +28,36 @@
         border-radius: 4px;
         font-size: 16px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #scripture-button:hover, #quiz-button:hover {
+        background-color: #3b318c;
       }
     </style>
   </head>
 
-  <body>
-    <div id="header" class="container flex items-center">
+  <body class="bg-lightblue">
+    <div id="header" class="container mx-auto flex items-center justify-center">
       <img id="logo" src="images/PrayerPal.png" alt="PrayerPal" />
     </div>
 
-    <div class="container mx-auto mt-4">
+    <div class="container mx-auto mt-8 flex justify-center">
       <button id="scripture-button" onclick="navigateToScripturePage()">View Daily Scripture</button>
+    </div>
+
+    <div class="container mx-auto mt-4 flex justify-center">
+      <button id="quiz-button" onclick="navigateToQuizPage()">Take Quiz</button>
     </div>
 
     <script>
       function navigateToScripturePage() {
         window.location.href = "/";
       }
+
+      function navigateToQuizPage() {
+        window.location.href = "/quiz";
+      }
     </script>
-    </section>
-
-<div class="container mx-auto mt-4">
-  <button id="quiz-button" onclick="navigateToQuizPage()">Take Quiz</button>
-</div>
-
-<script>
-  function navigateToQuizPage() {
-    window.location.href = "/quiz";
-  }
-</script>
   </body>
+   <div id="footer" class="bg-cover bg-center py-36 w-full h-full" style="background-image: url('images/PinkClouds Header.png')"></div>
 </html>

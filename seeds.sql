@@ -5,4 +5,5 @@ VALUES
 ('Know this, my beloved brothers: let every person be quick to hear, slow to speak, slow to anger.', 'James', 1, 19),
 ('Whoever conceals hatred with lying lips and spreads slander is a fool.', 'Proverbs', 10, 18),
 ('Do not suppose that I have come to bring peace to the earth. I did not come to bring peace, but a sword.', 'Matthew', 10, 34),
-('Righteousness exalts a nation, but sin condemns any people.', 'Proverbs', 14, 34);
+('Righteousness exalts a nation, but sin condemns any people.', 'Proverbs', 14, 34),
+('And I am sure of this, that he who began a good work in you will bring it to completion at the day of Jesus Christ.', "Philippians", 1, 6);

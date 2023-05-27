@@ -1,11 +1,5 @@
 # PrayerPal
-This is a website that sends daily King James Bible verses to registered users via email. Additionally, the website offers several other features such as chat rooms, games, and trivia to keep users engaged and connected with other users.
-
-## Features
-- Daily King James Bible verses sent via email to registered users
-- Chat rooms to connect with other users and discuss Bible-related topics
-- Bible trivia games to test and increase users' knowledge of the Bible
--Other fun games to keep users engaged
+This is a website that sends random bible verses and connected a quiz that will accurately test your faith.
 
 ## Technologies Used
 This web application is built using the following technologies:
@@ -14,17 +8,14 @@ This web application is built using the following technologies:
 - Template engine: Handlebars.js
 - Deployment: Heroku
 
+## Screenshots
+![screenshot1](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100429)
+![screenshot2](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100255)
+![screenshot3](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100202)
+![screenshot4](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100442)
+
 ## Installation
-To view the website, simply navigate to  https:// in your web browser.
-You can clone this repository and install the necessary dependencies using the following commands:
-
-`git clone git@github.com:.git`
-
-## Enviroment Variables
-
-## API Endpoints
-
-## Database Schema
+To view the website, simply navigate to https://prayerpal.herokuapp.com/ .
 
 ## Template Engine
 Handlebars.js is used as the template engine to render dynamic HTML pages.

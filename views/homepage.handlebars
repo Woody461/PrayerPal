@@ -49,6 +49,10 @@
       <button id="quiz-button" onclick="navigateToQuizPage()">Take Quiz</button>
     </div>
 
+    <nav class="container mx-auto mt-4 flex justify-center sticky bottom-0">
+      <button id="quiz-button" onclick="navigateToLogin()">Login</button>
+    </nav>
+
     <script>
       function navigateToScripturePage() {
         window.location.href = "/";
@@ -57,7 +61,11 @@
       function navigateToQuizPage() {
         window.location.href = "/quiz";
       }
+
+      function navigateToLogin() {
+        window.location.href = "/login"
+      }
     </script>
   </body>
-   <div id="footer" class="bg-cover bg-center py-36 w-full h-full" style="background-image: url('images/PinkClouds Header.png')"></div>
+   <div id="footer" class="bg-cover bg-center py-36 w-fit h-screen max-h-96" style="background-image: url('images/PinkClouds Header.png')"></div>
 </html>

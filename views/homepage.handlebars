@@ -49,6 +49,10 @@
       <button id="quiz-button" onclick="navigateToQuizPage()">Take Quiz</button>
     </div>
 
+    <nav class="container mx-auto mt-4 flex justify-center sticky bottom-0">
+      <button id="quiz-button" onclick="navigateToLogin()">Login</button>
+    </nav>
+
     <script>
       function navigateToScripturePage() {
         window.location.href = "/";
@@ -56,6 +60,10 @@
 
       function navigateToQuizPage() {
         window.location.href = "/quiz";
+      }
+
+      function navigateToLogin() {
+        window.location.href = "/login"
       }
     </script>
   </body>

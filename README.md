@@ -9,10 +9,10 @@ This web application is built using the following technologies:
 - Deployment: Heroku
 
 ## Screenshots
-![screenshot1](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100429)
-![screenshot2](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100255)
-![screenshot3](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100202)
-![screenshot4](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100442)
+![screenshot1](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100429.png)
+![screenshot2](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100255.png)
+![screenshot3](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100202.png)
+![screenshot4](https://github.com/Woody461/PrayerPal/tree/main/images/screenshots/Screenshot2023-05-27100442.png)
 
 ## Installation
 To view the website, simply navigate to https://prayerpal.herokuapp.com/ .

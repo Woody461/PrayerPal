@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mysql = require('mysql');
@@ -64,3 +64,4 @@ const connection = mysql.createConnection({
     res.clearCookie('user_id');
     res.redirect('/');
   });
+  */

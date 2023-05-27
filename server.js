@@ -1,22 +1,45 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mysql = require('mysql');
+const routes = require('./controllers');
+const session = require('express-session');
+
+
+/////
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
+////
+const PORT = process.env.PORT || 3001;
+const sess = {
+  secret: 'a secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
 
 // Handlebars Middleware
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 // Body Parser Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Create MySQL Connection
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'Steve461',
-  database: 'scriptures',
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME,
+
 });
 
 // Connect to MySQL
@@ -49,60 +72,6 @@ app.get('', (req, res) => {
   });
 });
 
-// API endpoint to insert a scripture
-app.get('/insert-scripture', (req, res) => {
-  // Define the scripture data
-  const verses = [
-    {
-      verse: 'The LORD is my shepherd; I shall not want.',
-      book: 'Psalms',
-      chapter: 23,
-      verseNumber: 1,
-    },
-    {
-      verse: 'For God so loved the world that he gave his one and only Son.',
-      book: 'John',
-      chapter: 3,
-      verseNumber: 16,
-    },
-    {
-      verse: 'Trust in the LORD with all your heart, and do not lean on your own understanding.',
-      book: 'Proverbs',
-      chapter: 3,
-      verseNumber: 5,
-    },
-    {
-      verse: 'I can do all things through Christ who strengthens me.',
-      book: 'Philippians',
-      chapter: 4,
-      verseNumber: 13,
-    },
-    {
-      verse: 'The fear of the LORD is the beginning of wisdom.',
-      book: 'Proverbs',
-      chapter: 9,
-      verseNumber: 10,
-    },
-  ];
-
-  // Select a random verse
-  const randomVerse = verses[Math.floor(Math.random() * verses.length)];
-
-  // Prepare the INSERT query
-  const query = 'INSERT INTO s_scriptures (verse, book, chapter, verse_number) VALUES (?, ?, ?, ?)';
-  const values = [randomVerse.verse, randomVerse.book, randomVerse.chapter, randomVerse.verseNumber];
-
-  // Execute the INSERT query
-  connection.query(query, values, (err, result) => {
-    if (err) {
-      console.error('Error inserting scripture:', err);
-      res.sendStatus(500);
-    } else {
-      console.log('Scripture inserted successfully');
-      res.sendStatus(200);
-    }
-  });
-});
 // Set static folder
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
@@ -141,3 +110,8 @@ app.get('/', (req, res) => {
   res.render('index', { images });
 });
 
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+});

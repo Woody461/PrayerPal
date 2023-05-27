@@ -1,4 +1,5 @@
 //code for quiz
+/*
 const rate = document.querySelector("#rate");
 const highScoreLink = document.querySelector("#highScoreLink");
 const timer = document.querySelector("#timer");
@@ -199,3 +200,4 @@ highScoreLink.addEventListener("click", function () {
       parent.removeChild(parent.firstChild);
     }
   }
+  */

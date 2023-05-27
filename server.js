@@ -35,11 +35,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Create MySQL Connection
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: process.env.DATABASE_URL,
   user: process.env.DB_USER,
   password: process.env.DB_PW,
   database: process.env.DB_NAME,
-
 });
 
 // Connect to MySQL

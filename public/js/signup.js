@@ -3,7 +3,7 @@ const signupFormHandler = async (event) => {
   
     const email = document.querySelector('#emailSignup').value.trim();
     const password = document.querySelector('#passwordSignup').value.trim();
-  
+  //post routes work but the user submitted data isn't making it to the db ahhhhhhhhhh
     if (email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
@@ -18,7 +18,6 @@ const signupFormHandler = async (event) => {
       }
     }
   };
-  
   document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);

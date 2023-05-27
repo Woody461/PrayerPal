@@ -48,11 +48,11 @@
       <button id="submitBtn" class="bg-fuchsia-200 hover:bg-fuchsia-400 text-white font-serif py-2 px-4 rounded-md transition-colors duration-300">Submit</button>
     </section>
 
-    <section class="sect" id="highScorePage"></section>
+    <section class="sect" id="highScorePage">
     <h2><img id="quizlogo" src="images/Heavens Gate.png" alt="PrayerPal" /></h2>
     <div id="highScores" style="background-image: url('images/list.png')"></div>
-    <button id="main" class="text-center bg-fuchsia-200 hover:bg-fuchsia-400 font-serif text-white py-2 px-4 mt-4 rounded-md transition-colors duration-300" onclick="navigateToHomePage()">Main Page</button>
-
+    <button id="main" class= "mx-auto flex justify-center text-center bg-fuchsia-200 hover:bg-fuchsia-400 font-serif text-white py-2 px-4 mt-4 rounded-md transition-colors duration-300" onclick="navigateToHomePage()">Home Page</button>
+    
 <script>
   function navigateToHomePage() {
     window.location.href = "/homepage";
@@ -61,15 +61,15 @@
 
    </section>
 
-    <section class="flex justify-between mt-4">
-      <h2 id="highScoreLink" class="text-center text-xl bg-fuchsia-200 hover:bg-fuchsia-400 font-serif text-white py-2 px-4 rounded-md transition-colors duration-300">View High Scores</h2>
+    <section class="flex justify-center mt-4">
+      <h2 id="highScoreLink" class="text-center text-xl bg-fuchsia-200 hover:bg-fuchsia-400 font-serif text-white py-2 px-4 rounded-md transition-colors duration-300" >View High Scores</h2>
       <h2 id="timer" class="text-xl"></h2>
     </section>
 
     <script src="assets/quiz.js"></script>
 
-    <div id="footer" class="bg-cover bg-center py-36 w-full h-full" style="background-image: url('images/PinkClouds Header.png')"></div>
-<!-- should probably move this to its own js file -->
+    <div id="footer" class="bg-cover bg-center py-36 w-full h-screen max-h-96" style="background-image: url('images/PinkClouds Header.png')"></div>
+<!-- should move all this to its own js file later -->
     <script>
       const rate = document.querySelector("#rate");
 const highScoreLink = document.querySelector("#highScoreLink");
@@ -191,7 +191,7 @@ function hide(y) {
     const showScore = document.querySelector("#score");
     showScore.textContent = "Your final score is " + score + ".";
   }
-
+/*
   function renderHighScores() {
     //Gets scores array from local storage
     const allScores = JSON.parse(localStorage.getItem("scores")) || [];
@@ -209,6 +209,22 @@ function hide(y) {
       highScores.appendChild(savedScores);
     }
   }
+*/
+//moved it towards the center
+function renderHighScores() {
+  const allScores = JSON.parse(localStorage.getItem("scores")) || [];
+  allScores.sort((a, b) => b.score - a.score);
+
+  const highScoresContainer = document.getElementById("highScores");
+  highScoresContainer.classList.add("flex", "flex-col", "items-center");
+
+  for (let i = 0; i < allScores.length; i++) {
+    const savedScores = document.createElement("p");
+    savedScores.textContent =
+      i + 1 + ". " + allScores[i].user + " - " + allScores[i].score + " point(s)";
+    highScoresContainer.appendChild(savedScores);
+  }
+}
 
   submitBtn.addEventListener("click",  function () {
     let initials = document.querySelector("#initials").value;

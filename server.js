@@ -51,7 +51,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/', (req, res) => {
+app.get('/daily-scripture', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 
@@ -84,7 +84,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 // Render the scripture page
-
+app.get('/scripture', (req, res) => {
+  res.render('scripture');
+});
 // Render the login page
 app.get('/login', (req, res) => {
   res.render('login');
@@ -100,3 +102,15 @@ app.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Define a route to render the template
+app.get('/', (req, res) => {
+  const images = ['favicon.png', 'Heavens Gate.png', 'Heavens List.png', 'list.png', 'Pink Clouds.png', 'PinkClouds Header.png', 'PrayerPal.png', 'quote.png', 'Take your PrayerPal Quiz.png'];
+
+  res.render('index', { images });
+});
+
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+});

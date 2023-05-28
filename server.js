@@ -51,7 +51,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/daily-scripture', (req, res) => {
+app.get('/', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 

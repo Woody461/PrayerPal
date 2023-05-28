@@ -84,12 +84,10 @@ app.use('/images', express.static('images'));
 app.get('/homepage', (req, res) => {
   res.render('homepage');
 });
-
-// render index
-//app.get('/', (req, res) => {
-//  res.render('index');
-//});
-
+// Render index
+app.get('/index', (req, res) => {
+  res.render('index');
+});
 // Render the scripture page
 app.get('/scripture', (req, res) => {
   res.render('scripture');

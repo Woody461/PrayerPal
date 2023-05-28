@@ -19,7 +19,7 @@ This web application is built using the following technologies:
 ![screenshot4](/images/screenshots/Screenshot2023-05-27100442.png)
 
 ## Installation
-To view the website, simply navigate to https://prayerpal.herokuapp.com/ .
+To view the website, simply navigate to https://prayer-pal.herokuapp.com/homepage .
 
 ## Template Engine
 Handlebars.js is used as the template engine to render dynamic HTML pages.

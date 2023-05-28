@@ -51,7 +51,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/daily-scripture', (req, res) => {
+app.get('/get-daily-scripture', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 
@@ -143,8 +143,8 @@ app.get('/index', (req, res) => {
   res.render('index');
 });
 // Render the scripture page
-app.get('/scripture', (req, res) => {
-  res.render('scripture');
+app.get('/daily-scripture', (req, res) => {
+  res.render('daily-scripture');
 });
 // Render the login page
 app.get('/login', (req, res) => {

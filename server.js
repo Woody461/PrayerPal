@@ -51,7 +51,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/', (req, res) => {
+app.get('/daily-scripture', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 
@@ -110,8 +110,13 @@ app.get('/signup', (req, res) => {
 });
 
 // Define a route to render the template
-//app.get('/', (req, res) => {
-//});
+
+app.get('/', (req, res) => {
+  const images = ['favicon.png', 'Heavens Gate.png', 'Heavens List.png', 'list.png', 'Pink Clouds.png', 'PinkClouds Header.png', 'PrayerPal.png', 'quote.png', 'Take your PrayerPal Quiz.png'];
+
+  res.render('index', { images });
+});
+
 
 app.use(routes);
 

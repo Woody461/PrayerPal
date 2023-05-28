@@ -51,7 +51,7 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('/', (req, res) => {
+app.get('/daily-scripture', (req, res) => {
   // Get a random scripture from the database
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
 
@@ -75,6 +75,79 @@ app.get('/', (req, res) => {
   res.render('index', { images });
 
 });
+
+// API endpoint to get the daily scripture
+app.get('', (req, res) => {
+  // Get a random scripture from the database
+  const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error retrieving scripture from MySQL:', err);
+      res.sendStatus(500);
+    } else {
+      if (results && results.length > 0) {
+        const selectedScripture = results[0];
+        res.render('daily-scripture', { scripture: selectedScripture });
+      } else {
+        console.log('No scriptures found in the database');
+        res.sendStatus(404);
+      }
+    }
+  });
+});
+// API endpoint to insert a scripture
+app.get('/insert-scripture', (req, res) => {
+  // Define the scripture data
+  const verses = [
+    {
+      verse: 'The LORD is my shepherd; I shall not want.',
+      book: 'Psalms',
+      chapter: 23,
+      verseNumber: 1,
+    },
+    {
+      verse: 'For God so loved the world that he gave his one and only Son.',
+      book: 'John',
+      chapter: 3,
+      verseNumber: 16,
+    },
+    {
+      verse: 'Trust in the LORD with all your heart, and do not lean on your own understanding.',
+      book: 'Proverbs',
+      chapter: 3,
+      verseNumber: 5,
+    },
+    {
+      verse: 'I can do all things through Christ who strengthens me.',
+      book: 'Philippians',
+      chapter: 4,
+      verseNumber: 13,
+    },
+    {
+      verse: 'The fear of the LORD is the beginning of wisdom.',
+      book: 'Proverbs',
+      chapter: 9,
+      verseNumber: 10,
+    },
+  ];
+  // Select a random verse
+  const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+  // Prepare the INSERT query
+  const query = 'INSERT INTO s_scriptures (verse, book, chapter, verse_number) VALUES (?, ?, ?, ?)';
+  const values = [randomVerse.verse, randomVerse.book, randomVerse.chapter, randomVerse.verseNumber];
+  // Execute the INSERT query
+  connection.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error inserting scripture:', err);
+      res.sendStatus(500);
+    } else {
+      console.log('Scripture inserted successfully');
+      res.sendStatus(200);
+    }
+  });
+});
+// Set static folder
+app.use(express.static('public'));
 
 // Set static folder
 app.use(express.static('public'));

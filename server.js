@@ -143,7 +143,7 @@ app.get('/index', (req, res) => {
   res.render('index');
 });
 // Render the scripture page
-app.get('/daily-scripture', (req, res) => {
+app.get('/scripture', (req, res) => {
   res.render('daily-scripture');
 });
 // Render the login page

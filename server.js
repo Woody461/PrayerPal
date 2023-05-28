@@ -69,6 +69,11 @@ app.get('/', (req, res) => {
       }
     }
   });
+
+  const images = ['favicon.png', 'Heavens Gate.png', 'Heavens List.png', 'list.png', 'Pink Clouds.png', 'PinkClouds Header.png', 'PrayerPal.png', 'quote.png', 'Take your PrayerPal Quiz.png'];
+
+  res.render('index', { images });
+
 });
 
 // Set static folder
@@ -79,12 +84,16 @@ app.use('/images', express.static('images'));
 app.get('/homepage', (req, res) => {
   res.render('homepage');
 });
-// render index
-app.get('/', (req, res) => {
-  res.render('index');
-});
-// Render the scripture page
 
+// render index
+//app.get('/', (req, res) => {
+//  res.render('index');
+//});
+
+// Render the scripture page
+app.get('/scripture', (req, res) => {
+  res.render('scripture');
+});
 // Render the login page
 app.get('/login', (req, res) => {
   res.render('login');
@@ -100,3 +109,12 @@ app.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Define a route to render the template
+//app.get('/', (req, res) => {
+//});
+
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+});

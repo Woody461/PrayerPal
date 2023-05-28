@@ -22,14 +22,13 @@ app.use(session(sess));
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views')); // Update with the path to your views directory
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
 
-// Define your routes
 
 app.get('/daily-scripture', (req, res) => {
   const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';

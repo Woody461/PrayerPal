@@ -27,11 +27,11 @@ Handlebars.js is used as the template engine to render dynamic HTML pages.
 ## Future Development
 There's still a lot to work on with this concept, such as:
 
--Adding support for other religious texts and nonreligious quotes using existing APIs
--Reminders to pray sent to users on pre-selected times of day.
--Sending daily scriptures, sayings, lessons directly to users through email
--Moral Chat where you can talk about the daily scripture and lessons. 
--Like/Save buttons on the verses you like best.
+- Adding support for other religious texts and nonreligious quotes using existing APIs
+- Reminders to pray sent to users on pre-selected times of day.
+- Sending daily scriptures, sayings, lessons directly to users through email
+- Moral Chat where you can talk about the daily scripture and lessons. 
+- Like/Save buttons on the verses you like best.
 
 ## Contributing
 Contributions are welcome! If you find a bug or want to suggest a new feature, please create an issue in the GitHub repository. If you want to contribute code, please create a pull request with your changes

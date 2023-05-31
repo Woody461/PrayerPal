@@ -37,12 +37,14 @@ app.get('/get-daily-scripture', (req, res) => {
     .then((results) => {
       if (results && results.length > 0) {
         const selectedScripture = results[0];
+
         res.json({
           verse: selectedScripture.verse,
           book: selectedScripture.book,
           chapter: selectedScripture.chapter,
           verse_number: selectedScripture.verse_number
         });
+
       } else {
         console.log('No scriptures found in the database');
         res.sendStatus(404);

@@ -12,7 +12,7 @@ VerseModel.init(
       autoIncrement: true,
     }, 
     verse: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     book: {

@@ -30,23 +30,30 @@ app.use(express.static('public'));
 app.use('/images', express.static('images'));
 
 
-app.get('/daily-scripture', (req, res) => {
+app.get('/get-daily-scripture', (req, res) => {
   const query = 'SELECT * FROM versemodel ORDER BY RAND() LIMIT 1';
 
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Error retrieving scripture from MySQL:', err);
-      res.sendStatus(500);
-    } else {
+  sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
+    .then((results) => {
       if (results && results.length > 0) {
         const selectedScripture = results[0];
-        res.render('/', { scripture: selectedScripture });
+
+        res.json({
+          verse: selectedScripture.verse,
+          book: selectedScripture.book,
+          chapter: selectedScripture.chapter,
+          verse_number: selectedScripture.verse_number
+        });
+
       } else {
         console.log('No scriptures found in the database');
         res.sendStatus(404);
       }
-    }
-  });
+    })
+    .catch((err) => {
+      console.error('Error retrieving scripture from MySQL:', err);
+      res.sendStatus(500);
+    });
 });
 
 app.get('/', (req, res) => {
@@ -60,7 +67,7 @@ app.get('/homepage', (req, res) => {
 });
 
 app.get('/scripture', (req, res) => {
-  res.render('scripture');
+  res.render('daily-scripture');
 });
 
 app.get('/login', (req, res) => {

@@ -31,7 +31,7 @@ app.use('/images', express.static('images'));
 
 
 app.get('/daily-scripture', (req, res) => {
-  const query = 'SELECT * FROM s_scriptures ORDER BY RAND() LIMIT 1';
+  const query = 'SELECT * FROM versemodel ORDER BY RAND() LIMIT 1';
 
   connection.query(query, (err, results) => {
     if (err) {

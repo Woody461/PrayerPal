@@ -31,7 +31,7 @@ app.use('/images', express.static('images'));
 
 
 app.get('/get-daily-scripture', (req, res) => {
-  const query = 'SELECT * FROM versemodel ORDER BY RAND() LIMIT 1';
+  const query = 'SELECT * FROM VerseModel ORDER BY RAND() LIMIT 1';
 
   sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
     .then((results) => {

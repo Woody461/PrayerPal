@@ -2,41 +2,12 @@
 <html>
 <head>
   <title>Daily Scripture</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Button styles */
-    .button {
-      padding: 10px 20px;
-      background-color: #4f46e5;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    /* Button hover effect */
-    .button:hover {
-      background-color: darkblue;
-    }
-  </style>
+   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-blue-300">
-  <div id="header" class="container flex items-center">
-    <img id="logo" src="images/PrayerPal.png" alt="PrayerPal" />
-  </div>
-  <h1 class="text-4xl text-center my-8">Daily Scripture</h1>
-  <div id="scripture-container" class="bg-white rounded-lg shadow-md p-4 mx-auto max-w-md">
-    <p class="text-lg"><span class="font-semibold">Verse:</span> <span id="verse"></span></p>
-    <p class="text-lg"><span class="font-semibold">Book:</span> <span id="book"></span></p>
-    <p class="text-lg"><span class="font-semibold">Chapter:</span> <span id="chapter"></span></p>
-    <p class="text-lg"><span class="font-semibold">Verse Number:</span> <span id="verse-number"></span></p>
-  </div>
-
-  <div class="container mx-auto mt-4 flex justify-center">
-    <button id="Homepage" class="button" onclick="navigateToHomePage()">Home Page</button>
+<body>
+  <h1>Daily Scripture</h1>
+  <div id="scripture-container">
+    <p>Loading scripture...</p>
   </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -44,11 +15,8 @@
     function fetchDailyScripture() {
       axios.get('/get-daily-scripture')
         .then(response => {
-          const { verse, book, chapter, verse_number } = response.data;
-          document.getElementById('verse').textContent = verse;
-          document.getElementById('book').textContent = book;
-          document.getElementById('chapter').textContent = chapter;
-          document.getElementById('verse-number').textContent = verse_number;
+          const scriptureContainer = document.getElementById('scripture-container');
+          scriptureContainer.innerHTML = '<p>' + response.data.scripture + '</p>';
         })
         .catch(error => {
           console.error(error);
@@ -57,12 +25,8 @@
         });
     }
 
-    function navigateToHomePage() {
-      window.location.href = "/homepage";
-    }
-
-    // Call the fetchDailyScripture function to retrieve and display the daily scripture on page load
-    fetchDailyScripture();
+    // Fetch and display the daily scripture on page load
+    document.addEventListener('DOMContentLoaded', fetchDailyScripture);
   </script>
 </body>
 </html>

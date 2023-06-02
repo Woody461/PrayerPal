@@ -1,0 +1,39 @@
+[
+    {
+    "verse": "The LORD is a refuge for the oppressed, a stronghold in times of trouble. Those who know your name will trust in you, for you, LORD, have never forsaken those who seek you. Sing praises to the LORD, enthroned in Zion; proclaim among the nations what he has done.",
+    "book":"Psalms",
+    "chapter":"9",
+    "verse_number":"9"
+},
+{
+    "verse": "Know this, my beloved brothers: let every person be quick to hear, slow to speak, slow to anger.",
+    "book": "James",
+    "chapter": "1",
+    "verse_number": "19"
+},
+{
+    "verse":"Whoever conceals hatred with lying lips and spreads slander is a fool",
+    "book": "Proverbs",
+    "chapter": "10",
+    "verse_number": "18"
+},
+{
+    "verse": "Do not suppose that I have come to bring peace to the earth. I did not come to bring peace, but a sword.",
+    "book":"Matthew",
+    "chapter":"10",
+    "verse_number":"34"
+},
+{
+    "verse": "Do not suppose that I have come to bring peace to the earth. I did not come to bring peace, but a sword.",
+    "book": "Mathew",
+    "chapter": "10",
+    "verse_number": "34"
+},
+{
+    "verse": "Righteousness exalts a nation, but sin condemns any people.",
+    "book": "Proverbs",
+    "chapter": "14",
+    "verse_number": "34"
+}
+
+]

@@ -1,4 +1,5 @@
-<!-- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,37 +14,31 @@
   </style>
 </head>
 <body>
-    <div id="header" class="container flex items-center">
-        <img id="“logo”" src="images\PrayerPal.png" alt="PrayerPal" logo.“ />
+  <div id="header" class="container flex items-center">
+    <img id="logo" src="images/PrayerPal.png" alt="PrayerPal" />
   </div>
   <div class="container mx-auto py-8">
     <div class="w-full max-w-sm mx-auto bg-white rounded p-6">
       <h1 class="text-2xl text-center font-bold mb-6">Sign Up</h1>
-      <form id="signupForm" class="mb-4">
-        <div class="mb-4">
-          <label class="block text-gray-700 font-bold mb-2" for="name">
-            Name
-          </label>
-          <input id="name" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name" placeholder="Name" required />
-        </div>
+      <form id="signupForm" class="form signup-form mb-4">
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="email">
             Email
           </label>
-          <input id="email" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" placeholder="Email" required />
+          <input id="emailSignup" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" placeholder="Email" required />
         </div>
         <div class="mb-6">
           <label class="block text-gray-700 font-bold mb-2" for="password">
             Password
           </label>
-          <input id="password" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" placeholder="Password" required />
+          <input id="passwordSignup" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" placeholder="Password" required />
         </div>
         <div class="flex items-center justify-between">
-          <input id="signupButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign Up" />
+          <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign Up" />
         </div>
       </form>
       <p class="text-center text-gray-700 text-sm">
-        Already have an account? <a href="login.html" class="text-blue-500">Login here</a>.
+        Already have an account? <a href="/login" class="text-blue-500">Login here</a>.
       </p>
     </div>
   </div>
@@ -52,89 +47,18 @@
       
     </nav>
   </div>
-  <script>
-    document.getElementById("signupForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form submission
-
-      // Get the form values
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-    });
-      // Send a POST request to the server to handle the signup process
-      fetch("/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name: name, email: email, password: password })
-      })
-      .then(response => {
-        if (response.ok) {
-          // Redirect to the login page after successful signup
-          window.location.href = "/login";
-      }}); -->
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>Signup</title>
-        <style>
-          body {
-            background-color: lightblue;
-          }
-        </style>
-      </head>
-      <body>
-        <div id="header" class="container flex items-center">
-          <img id="logo" src="images/PrayerPal.png" alt="PrayerPal" />
-        </div>
-        <div class="container mx-auto py-8">
-          <div class="w-full max-w-sm mx-auto bg-white rounded p-6">
-            <h1 class="text-2xl text-center font-bold mb-6">Sign Up</h1>
-            <form id="signupForm" class="form signup-form mb-4">
-              <div class="mb-4">
-                <label class="block text-gray-700 font-bold mb-2" for="email">
-                  Email
-                </label>
-                <input id="emailSignup" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" placeholder="Email" required />
-              </div>
-              <div class="mb-6">
-                <label class="block text-gray-700 font-bold mb-2" for="password">
-                  Password
-                </label>
-                <input id="passwordSignup" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" placeholder="Password" required />
-              </div>
-              <div class="flex items-center justify-between">
-                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign Up" />
-              </div>
-            </form>
-            <p class="text-center text-gray-700 text-sm">
-              Already have an account? <a href="/login" class="text-blue-500">Login here</a>.
-            </p>
-          </div>
-        </div>
-        <div id="footer" class="bg-cover bg-center py-24" style="background-image: url('images/Pink Clouds.png');">
-          <nav class="flex justify-center">
-            
-          </nav>
-        </div>
-        /* <script id="signupTemplate" type="text/x-handlebars-template">
-          <script>
-            /*document.getElementById("signupForm").addEventListener("submit", function(event) {
-              event.preventDefault(); // Prevent form submission 
-              
-            });
-            */
-              // Get the form values
-
-              //doesn't do anything
-             //var name = document.getElementById("name").value;
-             //var email = document.getElementById("email").value;
-             //var password = document.getElementById("password").value;
-                                  <script src="/js/signup.js"></script>
-              </body>
+   <!-- <script id="signupTemplate" type="text/x-handlebars-template"> </script> 
+  
+      /*document.getElementById("signupForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission 
+        
+      });
+      
+        // Get the form values
+        //doesn't do anything
+       //var name = document.getElementById("name").value;
+       //var email = document.getElementById("email").value;
+       //var password = document.getElementById("password").value; -->
+        <script src="/js/signup.js"></script>
+        </body>
 </html>

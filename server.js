@@ -52,25 +52,30 @@ connection.connect((err) => {
 });
 
 // API endpoint to get the daily scripture
-app.get('', (req, res) => {
-  // Get a random scripture from the database
+app.get('/get-daily-scripture', (req, res) => {
   const query = 'SELECT * FROM VerseModel ORDER BY RAND() LIMIT 1';
 
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Error retrieving scripture from MySQL:', err);
-      res.sendStatus(500);
-    } else {
+  sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
+    .then((results) => {
       if (results && results.length > 0) {
         const selectedScripture = results[0];
-        res.render('daily-scripture', { scripture: selectedScripture });
+        res.json({
+          verse: selectedScripture.verse,
+          book: selectedScripture.book,
+          chapter: selectedScripture.chapter,
+          verse_number: selectedScripture.verse_number
+        });
       } else {
         console.log('No scriptures found in the database');
         res.sendStatus(404);
       }
-    }
-  });
+    })
+    .catch((err) => {
+      console.error('Error retrieving scripture from MySQL:', err);
+      res.sendStatus(500);
+    });
 });
+
 
 // Set static folder
 app.use(express.static('public'));
@@ -86,7 +91,7 @@ app.get('/', (req, res) => {
 });
 // Render the scripture page
 app.get('/scripture', (req, res) => {
-  res.render('scripture');
+  res.render('daily-scripture');
 });
 // Render the login page
 app.get('/login', (req, res) => {
